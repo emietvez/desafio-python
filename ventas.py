@@ -130,10 +130,13 @@ def finalizar_venta():
 
         if(data_pago == 'EF'):
             print(f'Cambio: ${vuelto} ')
-    
-        cart = carrito.copy()
-        ventasTotales.append([cod, cart, data_pago, total])
-
+            cart = carrito.copy()
+            ventasTotales.append([cod, cart, data_pago, total])
+        else:
+           comprobante = ingresar_comprobante()
+           cart = carrito.copy()
+           ventasTotales.append([cod, cart, data_pago, total, comprobante])
+        
         vaciar_carrito()
 
     else:
@@ -155,13 +158,29 @@ def vaciar_carrito():
     """Funcion para vaciar carrito actual"""
     carrito.clear()
 
+def ingresar_comprobante():
+    """Funcion para ingresar comprobante"""
+    while True:
+        try:
+            comp = int(input("Ingrese ultimos 5 digitos del comprobante: "))
+            if len(str(comp)) == 5:
+                return comp
+            else:
+                print("Debe ingresar 5 digitos")
+        except:
+            print("Se esperaba un valor numerico")
+
 
 def ventas_totales():
     """Funcion para ver ventas totales"""
     if(len(ventasTotales) > 0):
         for venta in ventasTotales:
             print("=========================================================================")
-            print(f"""Cod: {venta[0]} | Forma de pago: {venta[2]} | Total pagado: ${venta[3]}""")
+            if venta[2] == "EF":
+                print(f"""Cod: {venta[0]} | Forma de pago: {venta[2]} | Total pagado: ${venta[3]}""")
+            else:
+                print(f"""Cod: {venta[0]} | Forma de pago: {venta[2]} | Total pagado: ${venta[3]} | Comprobante: {venta[4]}""")
+
             for item in venta[1]:
                 print(f"""Producto: {item[0]} | Precio: ${item[1]} | Cantidad: {item[2]}""")
             print("=========================================================================")
