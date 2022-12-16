@@ -84,10 +84,10 @@ def finalizar_venta():
     for venta in ventas:
         if venta[3] == "EF":
             print("")
-            print(f"Opcion: {venta[0]} | Cantidad: {venta[1]} | Forma de pago: {venta[3]} | Total pagado: {venta[2]}")
+            print(f"Opcion: {venta[0]} | Cantidad: {venta[1]} | Forma de pago: {venta[3]} | Total pagado: ${venta[2]}")
         else:
             print("")
-            print(f"Opcion: {venta[0]} | Cantidad: {venta[1]} | Forma de pago: {venta[3]}| Comprobante {venta[4]} | Total pagado: {venta[2]}")
+            print(f"Opcion: {venta[0]} | Cantidad: {venta[1]} | Forma de pago: {venta[3]} | Comprobante {venta[4]} | Total pagado: ${venta[2]}")
     print("")
     print("Gracias por su compra!")
 
