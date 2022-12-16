@@ -112,7 +112,6 @@ def ver_venta():
     else:
         print("No tiene productos en el carrito")
 
-
 def finalizar_venta():
     """Funcion para finalizar venta"""
     if (len(carrito) > 0):
@@ -142,7 +141,6 @@ def finalizar_venta():
     else:
         print("No tiene productos en el carrito")
 
-
 def forma_de_pago():
     """Funcion para ingresar forma de pago"""
     while True:
@@ -152,11 +150,6 @@ def forma_de_pago():
             return forma_pago
         else:
             print("Ingrese un dato valido")
-
-
-def vaciar_carrito():
-    """Funcion para vaciar carrito actual"""
-    carrito.clear()
 
 def ingresar_comprobante():
     """Funcion para ingresar comprobante"""
@@ -169,6 +162,11 @@ def ingresar_comprobante():
                 print("Debe ingresar 5 digitos")
         except:
             print("Se esperaba un valor numerico")
+
+def vaciar_carrito():
+    """Funcion para vaciar carrito actual"""
+    carrito.clear()
+
 
 
 def ventas_totales():
